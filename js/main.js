@@ -138,3 +138,70 @@ const fetchProjects = async () => {
 };
 
 fetchProjects();
+
+// ===== Contact Form =====
+const contactForm = document.querySelector('#contact-form');
+const successMessage = document.querySelector('#form-success');
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// 상태
+let formErrors = { name: '', email: '', message: '' };
+
+// 필드 하나 검사 → 에러 메시지 반환 (문제없으면 빈 문자열)
+const validateField = (field, value) => {
+  const trimmed = value.trim();
+
+  if (trimmed === '') {
+    return '필수 입력 항목입니다.';
+  }
+  if (field === 'email' && !EMAIL_PATTERN.test(trimmed)) {
+    return '올바른 이메일 형식이 아닙니다.';
+  }
+  return '';
+};
+
+// 렌더링: 에러 상태를 보고 메시지 표시/숨김
+const renderFormErrors = () => {
+  Object.entries(formErrors).forEach(([field, message]) => {
+    const input = contactForm.querySelector(`#${field}`);
+    const errorEl = contactForm.querySelector(`#${field}-error`);
+
+    errorEl.textContent = message;
+    input.classList.toggle('input-error', message !== '');
+  });
+};
+
+// 상태 변경 함수
+const setFormErrors = (newErrors) => {
+  formErrors = { ...formErrors, ...newErrors };
+  renderFormErrors();
+};
+
+// 입력할 때마다 해당 필드만 실시간 검사
+contactForm.addEventListener('input', (event) => {
+  const { name, value } = event.target;
+  if (!(name in formErrors)) return;
+
+  setFormErrors({ [name]: validateField(name, value) });
+  successMessage.textContent = '';
+});
+
+// 제출 시 전체 검사
+contactForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const { name: nameInput, email: emailInput, message: messageInput } = contactForm.elements;
+
+  const newErrors = {
+    name: validateField('name', nameInput.value),
+    email: validateField('email', emailInput.value),
+    message: validateField('message', messageInput.value),
+  };
+  setFormErrors(newErrors);
+
+  const hasError = Object.values(newErrors).some((msg) => msg !== '');
+  if (hasError) return;
+
+  successMessage.textContent = '메시지가 성공적으로 전송되었습니다!';
+  contactForm.reset();
+});
