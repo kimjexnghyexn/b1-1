@@ -17,7 +17,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="hamburger">☰</button>
-      <button id="theme-toggle">🌙</button>
+      <button id="theme-toggle" aria-label="다크 모드 전환">🌙</button>
     </nav>
   </header>
 
@@ -28,11 +28,13 @@
       <a href="#projects" class="cta-btn">프로젝트 보기</a>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <img src="images/profile.jpg" alt="정현 프로필 사진">
-      <p>자기소개 내용</p>
-    </section>
+    <section id="about" class="fade-in">
+  <h2>About</h2>
+  <div class="about-content">
+    <img src="images/profile.jpg" alt="정현 프로필 사진">
+    <p>자기소개 내용</p>
+  </div>
+</section>
 
     <section id="skills">
       <h2>Skills</h2>
@@ -77,9 +79,13 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 정현. All rights reserved.</p>
-  </footer>
+ <footer>
+  <ul class="social-links">
+    <li><a href="https://github.com/kimjexnghyexn" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    <li><a href="mailto:본인이메일@example.com">Email</a></li>
+  </ul>
+  <p>&copy; 2026 정현. All rights reserved.</p>
+</footer>
 
   <button id="scroll-top" aria-label="맨 위로 이동">↑</button>
   
