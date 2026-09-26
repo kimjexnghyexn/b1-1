@@ -93,3 +93,12 @@ nav {
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 70px;
+  min-height: 100vh;
+}
