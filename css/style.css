@@ -44,22 +44,49 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md);
+  position: relative;
 }
 
 .nav-menu {
-  display: flex;
+  display: none;
   list-style: none;
+  flex-direction: column;
   gap: var(--spacing-md);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: var(--bg-color);
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: var(--text-color);
+.nav-menu.active {
+  display: flex;
 }
 
 .hamburger {
-  display: none; /* 데스크톱에서는 숨김, 모바일에서만 나중에 보이게 함 */
+  display: block;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
