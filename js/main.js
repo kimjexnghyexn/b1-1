@@ -1,1 +1,19 @@
-console.log('연결됨');
+const themeToggle = document.querySelector('#theme-toggle');
+const htmlElement = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  htmlElement.setAttribute('data-theme', 'dark');
+}
+
+themeToggle.addEventListener('click', () => {
+  const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+
+  if (isDark) {
+    htmlElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+});
