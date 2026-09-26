@@ -102,3 +102,35 @@ section {
   scroll-margin-top: 70px;
   min-height: 100vh;
 }
+/* 스크롤 60px 이상일 때 헤더 스타일 */
+header.scrolled {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* 스크롤 탑 버튼: 기본은 숨김 */
+#scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+#scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}

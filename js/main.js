@@ -32,3 +32,20 @@ navLinks.forEach((link) => {
     navMenu.classList.remove('active');
   });
 });
+
+const header = document.querySelector('header');
+const scrollTopBtn = document.querySelector('#scroll-top');
+
+const NAV_SCROLL_THRESHOLD = 60;
+const TOP_BTN_THRESHOLD = 300;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  header.classList.toggle('scrolled', scrollY > NAV_SCROLL_THRESHOLD);
+  scrollTopBtn.classList.toggle('show', scrollY > TOP_BTN_THRESHOLD);
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
