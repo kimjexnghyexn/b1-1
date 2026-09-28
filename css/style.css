@@ -374,3 +374,15 @@ footer {
     font-size: 36px;
   }
 }
+
+/* ===== 스크롤 애니메이션 ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
