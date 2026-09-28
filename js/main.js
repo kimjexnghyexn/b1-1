@@ -205,3 +205,19 @@ contactForm.addEventListener('submit', (event) => {
   successMessage.textContent = '메시지가 성공적으로 전송되었습니다!';
   contactForm.reset();
 });
+
+// ===== 스크롤 애니메이션 =====
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const OBSERVER_THRESHOLD = 0.2;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: OBSERVER_THRESHOLD });
+
+fadeElements.forEach((el) => observer.observe(el));
