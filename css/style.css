@@ -39,12 +39,33 @@ header {
   z-index: 1000;
 }
 
+/* 스크롤 60px 이상일 때 헤더 스타일 */
+header.scrolled {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md);
   position: relative;
+}
+
+/* 로고 왼쪽, 나머지 전부 오른쪽 */
+nav {
+  gap: var(--spacing-md);
+}
+
+.logo {
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .nav-menu {
@@ -101,15 +122,6 @@ html {
 section {
   scroll-margin-top: 70px;
   min-height: 100vh;
-}
-/* 스크롤 60px 이상일 때 헤더 스타일 */
-header.scrolled {
-  background-color: var(--card-bg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-header {
-  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* 스크롤 탑 버튼: 기본은 숨김 */
@@ -230,17 +242,6 @@ h2 {
   font-size: 28px;
   margin-bottom: var(--spacing-lg);
   text-align: center;
-}
-
-/* 로고 왼쪽, 나머지 전부 오른쪽 */
-nav {
-  gap: var(--spacing-md);
-}
-
-.logo {
-  margin-right: auto;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 #theme-toggle {
