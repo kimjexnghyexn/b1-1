@@ -108,6 +108,33 @@ nav {
   }
 }
 
+/* ===== 태블릿 (768px~) ===== */
+@media (min-width: 768px) {
+  #hero h1 {
+    font-size: 44px;
+  }
+
+  .about-content {
+    flex-direction: row;
+  }
+}
+
+/* ===== 데스크톱 (1024px~) ===== */
+@media (min-width: 1024px) {
+  section {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #hero h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -347,33 +374,6 @@ footer {
 
 .social-links a {
   color: var(--text-color);
-}
-
-/* ===== 태블릿 (768px~) ===== */
-@media (min-width: 768px) {
-  #hero h1 {
-    font-size: 44px;
-  }
-
-  .about-content {
-    flex-direction: row;
-  }
-}
-
-/* ===== 데스크톱 (1024px~) ===== */
-@media (min-width: 1024px) {
-  section {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-
-  #hero h1 {
-    font-size: 56px;
-  }
-
-  h2 {
-    font-size: 36px;
-  }
 }
 
 /* ===== 스크롤 애니메이션 ===== */
